@@ -13,7 +13,7 @@ import com.geek.reandroid1_5_hw.ui.fragments.second_fragment.SecondFragment;
 import com.geek.reandroid1_5_hw.ui.fragments.third_fragment.ThirdFragment;
 import com.geek.reandroid1_5_hw.ui.interfaces.FragmentListeners;
 
-public class MainActivity extends AppCompatActivity implements FragmentListeners {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,37 +21,4 @@ public class MainActivity extends AppCompatActivity implements FragmentListeners
         setContentView(R.layout.activity_main);
         getSupportFragmentManager().beginTransaction().add(R.id.firstCont, new FirstFragment()).commit();
     }
-
-
-    @Override
-    public void firstF(String s) {
-        Bundle bundle = new Bundle();
-        FirstFragment firstFragment = new FirstFragment();
-        bundle.putString("key", s);
-        firstFragment.setArguments(bundle);
-        getSupportFragmentManager().beginTransaction().replace(R.id.firstCont, new SecondFragment()).commit();
-    }
-
-    @Override
-    public void secondF() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.secondCont, new ThirdFragment()).commit();
-    }
-
-    @Override
-    public void thirdF() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.thirdCont, new FourthFragment()).commit();
-    }
-
-    @Override
-    public void fourthF() {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fourthCont, new FifthFragment()).commit();
-    }
-
-//    @Override
-//    public void fifthF() {
-//        FifthFragment fifthFragment = new FifthFragment();
-//        TextView showText = fifthFragment.getView().findViewById(R.id.fifthTv);
-//        String s = fifthFragment.getArguments().getString("key");
-//        showText.setText(s);
-//    }
 }

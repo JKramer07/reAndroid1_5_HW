@@ -22,15 +22,6 @@ import org.w3c.dom.Text;
 
 public class FourthFragment extends Fragment {
 
-    private Button btnSend4;
-    private TextView fourthText;
-    private FragmentListeners listeners;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        listeners = (FragmentListeners) context;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -39,14 +30,4 @@ public class FourthFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_fourth, container, false);
     }
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        btnSend4 = view.findViewById(R.id.fourthSendBtn);
-        fourthText = view.findViewById(R.id.fourthTv);
-
-        btnSend4.setOnClickListener(v ->{
-            listeners.fourthF();
-        });
-    }
 }

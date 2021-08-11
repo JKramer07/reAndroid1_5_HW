@@ -22,13 +22,6 @@ public class FirstFragment extends Fragment {
 
     private EditText editText;
     private Button btnSent;
-    private FragmentListeners listeners;
-
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-        listeners = (FragmentListeners) context;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,7 +37,12 @@ public class FirstFragment extends Fragment {
         btnSent = view.findViewById(R.id.sendBtn);
 
         btnSent.setOnClickListener(v -> {
-            listeners.firstF(editText.getText().toString());
+            Bundle bundle = new Bundle();
+            FifthFragment fifthFragment = new FifthFragment();
+            bundle.putString("key", editText.getText().toString());
+            fifthFragment.setArguments(bundle);
+            getFragmentManager().beginTransaction().add(R.id.firstCont, fifthFragment).commit();
+            FirstFragment.this.getFragmentManager().beginTransaction().replace(R.id.firstCont, fifthFragment).commit();
         });
     }
 }

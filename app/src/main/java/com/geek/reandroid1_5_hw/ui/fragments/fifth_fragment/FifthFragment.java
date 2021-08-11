@@ -34,9 +34,9 @@ public class FifthFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         showText = view.findViewById(R.id.fifthTv);
         btnShow = view.findViewById(R.id.showBtn);
+        Bundle bundle = getArguments();
 
         btnShow.setOnClickListener(v -> {
-            Bundle bundle = this.getArguments();
             String text = bundle.getString("key");
             showText.setText(text);
         });
